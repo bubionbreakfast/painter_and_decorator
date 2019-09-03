@@ -12,9 +12,20 @@ describe('Decorator', function(){
   it('should be able to add a can paint to stock', function(){
 
     const decorator = new Decorator([]);
-    decorator.addPaintCan(15)
+    decorator.addPaintCan(1)
+    decorator.addPaintCan(1)
+
     const actual = decorator.stock;
-    assert.deepStrictEqual(actual, [15])
+    assert.deepStrictEqual(actual, [1,1])
+  })
+
+  it('should be able to calculate total litres in stock', function(){
+    const decorator = new Decorator([])
+    const paint = new Paint(3)
+
+    decorator.addPaintCan(paint)
+    const actual = decorator.stock.litres
+    assert.deepStrictEqual(actual, 3)
   })
 
 });
